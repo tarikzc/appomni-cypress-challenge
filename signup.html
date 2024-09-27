@@ -74,7 +74,7 @@
       border-color: #e85f5f;
     }
 
-    input[type=submit] {
+    button[type=submit] {
       background: hsl(190, 67%, 64%);
       border-color: hsl(190, 67%, 64%);
       color: #3d4f63;
@@ -85,8 +85,8 @@
       margin-top: 3em;
     }
 
-    input[type=submit]:hover,
-    input[type=submit]:focus {
+    button[type=submit]:hover,
+    button[type=submit]:focus {
       animation: none;
       background: hsl(170, 100%, 76%);
       border-color: hsl(170, 100%, 76%);
@@ -142,6 +142,12 @@
   <main>
     <form>
       <h1 class="signup-header">Sign up</h1>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <button type="submit">Submit</button>
     </form>
   </main>
 

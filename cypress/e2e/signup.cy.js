@@ -9,6 +9,7 @@ describe('Signup', () => {
     cy.findByRole('button', { text: 'Submit' }).click();
     cy.get('.error').should('not.exist');
     cy.get('.error_message').should('not.exist');
+
   });
 
   describe('form validation displays an error when', () => {
@@ -20,7 +21,6 @@ describe('Signup', () => {
 
     xit('the password is less than 10 characters', () => {
       // add test commands
-
     });
   });
 });
