@@ -74,7 +74,7 @@
       border-color: #e85f5f;
     }
 
-    input[type=submit] {
+    button[type=submit] {
       background: hsl(190, 67%, 64%);
       border-color: hsl(190, 67%, 64%);
       color: #3d4f63;
@@ -85,8 +85,8 @@
       margin-top: 3em;
     }
 
-    input[type=submit]:hover,
-    input[type=submit]:focus {
+    button[type=submit]:hover,
+    button[type=submit]:focus {
       animation: none;
       background: hsl(170, 100%, 76%);
       border-color: hsl(170, 100%, 76%);
@@ -142,6 +142,12 @@
   <main>
     <form>
       <h1 class="signup-header">Sign up</h1>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <button type="submit">Submit</button>
     </form>
   </main>
 
@@ -149,6 +155,27 @@
     document.querySelector('form').addEventListener('submit', (e) => {
       e.preventDefault();
       const { username, password } = e.target;
+
+      // Validate username
+      if (!username.value.trim()) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error_message';
+        errorDiv.textContent = 'enter a username';
+        username.classList.add('error');
+        username.insertAdjacentElement('afterend', errorDiv);
+        return;
+      }
+
+      // Validate password length
+      if (password.value.length < 10) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error_message';
+        errorDiv.textContent = 'Password should have minimum 10 characters';
+        password.classList.add('error');
+        password.insertAdjacentElement('afterend', errorDiv);
+        return;
+      }
+
       console.log(username.value);
       console.log(password.value);
     });
