@@ -166,6 +166,16 @@
         return;
       }
 
+      // Validate password length
+      if (password.value.length < 10) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error_message';
+        errorDiv.textContent = 'Password should have minimum 10 characters';
+        password.classList.add('error');
+        password.insertAdjacentElement('afterend', errorDiv);
+        return;
+      }
+
       console.log(username.value);
       console.log(password.value);
     });
